@@ -95,5 +95,59 @@
         })
     });
 
-})(jQuery);
+    })(jQuery);
+
+    (function () {
+        var selectors = [
+            '.featurs-item',
+            '.fruite-item',
+            '.counter',
+            '.footer .col-lg-3'
+        ];
+        selectors.forEach(function (sel) {
+            document.querySelectorAll(sel).forEach(function (el) {
+                el.classList.add('reveal-on-scroll');
+            });
+        });
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+            observer.observe(el);
+        });
+
+        var waBtn = document.getElementById('whatsapp-float');
+        if (waBtn) {
+            waBtn.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-6px) scale(1.1)';
+                this.style.boxShadow = '0 8px 30px rgba(37,211,102,0.5)';
+            });
+            waBtn.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 4px 20px rgba(37,211,102,0.4)';
+            });
+        }
+
+        var orderNowBtn = document.getElementById('whatsappOrderNowBtn');
+        if (orderNowBtn) {
+            orderNowBtn.addEventListener('click', function () {
+                var phoneNumber = '917299211729';
+                var messageInput = document.getElementById('whatsappMessageInput');
+                var message = messageInput ? encodeURIComponent(messageInput.value) : encodeURIComponent('I want to purchase products');
+                var whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + message;
+                window.open(whatsappUrl, '_blank');
+
+                var modalEl = document.getElementById('whatsappPaymentModal');
+                var modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+            });
+        }
+    })();
 
