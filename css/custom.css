@@ -432,6 +432,23 @@ body {
   font-size: 0.95rem;
 }
 
+.delivery-note {
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  color: #2d3748 !important;
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: block !important;
+  margin-top: 8px !important;
+}
+
+.delivery-note strong {
+  color: var(--organic-gold) !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 /* ===================================
    🛍️ Products Section — Premium Cards
    =================================== */
@@ -781,21 +798,19 @@ body {
 }
 
 /* ===================================
-   🚚 Delivery Note — Light Green Background
+   🚚 Delivery Note — Amount Highlighted
    =================================== */
 .delivery-note {
-  background-color: var(--organic-green-pale);
-  color: var(--organic-green);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  display: inline-block;
-  font-weight: 600;
-  font-size: 0.9rem;
+  color: var(--organic-brown);
+  font-size: 0.95rem;
   margin-top: 8px;
+  line-height: 1.6;
 }
 
 .delivery-note strong {
-  color: var(--organic-green);
+  color: var(--organic-gold);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* ===================================
@@ -855,4 +870,75 @@ a {
 
 .fruite .fruite-item:hover::before {
   opacity: 1;
+}
+
+/* ===================================
+   📖 About Us Section
+   =================================== */
+.about-section {
+  background: linear-gradient(180deg, #fff 0%, var(--organic-beige) 100%);
+}
+
+.about-intro {
+  background: #fff;
+  border: 1px solid rgba(45, 106, 79, 0.06);
+  box-shadow: var(--shadow-card);
+  color: var(--organic-brown);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about-card {
+  background: #fff;
+  border: 1px solid rgba(45, 106, 79, 0.06);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(45, 106, 79, 0.15);
+}
+
+.about-card-icon {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-organic);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 8px 25px rgba(45, 106, 79, 0.3);
+  transition: var(--transition-bounce);
+}
+
+.about-card:hover .about-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.about-card h5 {
+  color: var(--organic-green);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.about-card p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.about-location {
+  background: var(--organic-cream);
+  border: 1px solid rgba(45, 106, 79, 0.06);
+}
+
+/* Free Shipping amount highlight */
+.about-card p strong {
+  color: var(--organic-gold);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
