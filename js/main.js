@@ -31,14 +31,16 @@
     
     
    // Back to top button
-   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-        $('.back-to-top').fadeIn('slow');
+   function toggleBackToTop() {
+    if ($(window).scrollTop() > 300) {
+        $('.back-to-top').addClass('show');
     } else {
-        $('.back-to-top').fadeOut('slow');
+        $('.back-to-top').removeClass('show');
     }
-    });
-    $('.back-to-top').click(function () {
+   }
+   $(window).scroll(toggleBackToTop);
+   $(document).ready(toggleBackToTop);
+   $('.back-to-top').click(function () {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
